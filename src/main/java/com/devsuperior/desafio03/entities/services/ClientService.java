@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.desafio03.controller.dto.ClientDTO;
 import com.devsuperior.desafio03.entities.Client;
 import com.devsuperior.desafio03.entities.services.exceptions.DataBaseException;
+import com.devsuperior.desafio03.entities.services.exceptions.ElementNotFoundException;
 import com.devsuperior.desafio03.entities.services.exceptions.ResourceNotFoundException;
 import com.devsuperior.desafio03.repository.ClientRepository;
 
@@ -27,7 +28,7 @@ public class ClientService {
 	@Transactional(readOnly = true)
 	public ClientDTO findById(Long id) {
 		Optional<Client> clients = repository.findById(id);
-		Client client = clients.get();
+		Client client = clients.orElseThrow(() -> new ElementNotFoundException("Recuros não encontrado"));
 		ClientDTO clientDTO = new ClientDTO(client);
 		return clientDTO;
 	}
