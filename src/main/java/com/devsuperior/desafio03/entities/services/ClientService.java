@@ -14,7 +14,6 @@ import com.devsuperior.desafio03.controller.dto.ClientDTO;
 import com.devsuperior.desafio03.entities.Client;
 import com.devsuperior.desafio03.entities.services.exceptions.DataBaseException;
 import com.devsuperior.desafio03.entities.services.exceptions.ElementNotFoundException;
-import com.devsuperior.desafio03.entities.services.exceptions.ResourceNotFoundException;
 import com.devsuperior.desafio03.repository.ClientRepository;
 
 import jakarta.persistence.EntityNotFoundException;
